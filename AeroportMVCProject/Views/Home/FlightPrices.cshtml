@@ -1,0 +1,36 @@
+﻿@using System.Web.UI.WebControls
+@using AeroportWeb.ExtentionMethods
+@model IEnumerable<AeroportBusinessLogic.Models.Flight>
+@{
+    ViewBag.Title = "Поиск по ценам";
+}
+
+<div class="row my-5">
+    <div class="col-md-2">
+        <h2>Поиск по ценам</h2>
+    </div>
+    @using (Ajax.BeginForm("FlightPricesSearch", "Home", new AjaxOptions { UpdateTargetId = "search", InsertionMode = InsertionMode.Replace }, new { @class = "form-inline col-10 justify-content-end" }))
+    {
+        @Html.TextBox("lowPrice", "", new { @placeholder = "Цена от...", @class = "form-control mr-2 col-5" })
+        @Html.TextBox("upPrice", "", new { @placeholder = "Цена до...", @class = "form-control mr-2 col-5" })
+        @Html.Button("Поиск", new { @class = "btn btn-outline-primary col-6", @type = "submit" })
+    }
+</div>
+
+<div class="row my-5">
+    <div class="col-md-2">
+        <h2>Поиск по направлению</h2>
+    </div>
+    @using (Ajax.BeginForm("FlightDestinationSearch", "Home", new AjaxOptions { UpdateTargetId = "search", InsertionMode = InsertionMode.Replace }, new { @class = "form-inline col-10 justify-content-end" }))
+    {
+        @Html.TextBox("destination", "", new { @placeholder = "Целевой город...", @class = "form-control mr-2 col-5" })
+        @Html.Button("Поиск", new { @class = "btn btn-outline-primary col-6", @type = "submit" })
+    }
+</div>
+
+
+<p>
+
+
+<div id="search" class="row">
+</div>

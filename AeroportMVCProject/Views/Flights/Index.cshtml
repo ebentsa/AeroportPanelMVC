@@ -1,0 +1,124 @@
+﻿@using System.Activities.Statements
+@using AeroportBusinessLogic
+@using AeroportWeb.ExtentionMethods
+@model IEnumerable<AeroportBusinessLogic.Models.Flight>
+
+@{
+    ViewBag.Title = "Администрирование рейсов";
+}
+
+<div class="row my-5">
+    <div class="col-md-5">
+        <h2>Поиск пассажиров</h2>
+    </div>
+    @using (Ajax.BeginForm("AdminPassSearch", "Flights", new AjaxOptions { UpdateTargetId = "search", InsertionMode = InsertionMode.Replace }, new { @class = "form-inline col-10 justify-content-end" }))
+    {
+        @Html.TextBox("passData", "", new { @placeholder = "Введите Имя или Фамилию или Пасспорт", @class = "form-control mr-2 col-5" })
+        @Html.Button("Поиск", new { @class = "btn btn-outline-primary col-2", @type = "submit" })
+    }
+</div>
+
+<div class="row my-5">
+    <div class="col-md-5">
+        <h2>Поиск рейсов</h2>
+    </div>
+    @using (Ajax.BeginForm("AdminFlightSearch", "Flights", new AjaxOptions { UpdateTargetId = "search", InsertionMode = InsertionMode.Replace }, new { @class = "form-inline col-10 justify-content-end" }))
+    {
+        @Html.TextBox("flightData", "", new { @placeholder = "Введите город или номер рейса или ID рейса", @class = "form-control mr-2 col-5" })
+        @Html.Button("Поиск", new { @class = "btn btn-outline-primary col-2", @type = "submit" })
+    }
+</div>
+
+<div id="search">
+
+<h2>Топ 25 рейсов</h2>
+
+<p>
+    @Html.ActionLink("Добавить рейс", "Create")
+</p>
+
+
+
+<div class="row">
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartureOrArrival)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Flightdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightAirline)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightTerminal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightStat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightGate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BusinessPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EconomPrice)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DepartureOrArrival)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FlightNum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Flightdate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FlightCity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FlightAirline)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FlightTerminal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FlightStat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FlightGate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BusinessPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EconomPrice)
+                </td>
+                <td>
+                    @Html.ActionLink("   ", "Edit", new { id = item.FlightId }, new { @class = " fas fa-edit h2" })
+                    @Html.ActionLink("   ", "Details", new { id = item.FlightId }, new { @class = " fas fa-info h2" })
+                    @Html.ActionLink("   ", "Delete", new { id = item.FlightId }, new { @class = "@class = fas fa-trash-alt h2" })
+                    @Html.ActionLink("Пассажиры", "ShowPass", new { id = item.FlightId }, new { @class = "btn btn-outline-primary" })
+                    @Html.ActionLink("Добавить Пассажира", "CreatePass", new { id = item.FlightId }, new { @class = "btn btn-outline-primary" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+</div>

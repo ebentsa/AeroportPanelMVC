@@ -1,0 +1,18 @@
+﻿@using AeroportWeb.ExtentionMethods
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row my-5 justify-content-center">
+    <h2 class="align-content-md-center">ПОИСК РЕЙСА</h2>
+    <div class="container">
+        <div class="row col-12 justify-content-center">
+        @using (@Html.BeginForm("Departure", "Home", "name"))
+        {
+            @Html.TextBox("name", "", new {@placeholder = "Введите город или номер рейса", @class = "mr-2  col-12"})
+            @Html.Button("Поиск", new {@class = "btn btn-outline-primary col-12", @type="submit"})
+
+        }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+﻿body {
+    padding:0;
+    margin:0;
+
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+.block {
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    width: 100px;
+    margin: 0 auto;
+}
+.container-fluid {
+background-color: antiquewhite;
+width: 880px;
+height: 100px;
+border: darkslateblue;
+}
+input[type=checkbox] {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    -webkit-appearance: none;
+    outline: 0;
+}
+input[type=checkbox]:checked {
+    background-image: url("images/departure.png");
+        
+    }
+
+input[type=checkbox]:not(:checked) {
+    background-image: url("images/arrival.png");
+    }
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+.navbar {
+padding:0;
+}
+.copy {
+text-align: center;
+}

@@ -1,0 +1,66 @@
+﻿@model IEnumerable<AeroportBusinessLogic.Models.Passenger>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PassFlNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nationality)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Passport)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Birthday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sex)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FlClass)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassFlNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nationality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Passport)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Birthday)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sex)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlClass)
+            </td>
+            <td>
+                @Html.ActionLink("    ", "EditPass", "Flights", new { id = item.PassengerId }, new { @class = " fas fa-edit h2" })
+                @Html.ActionLink("    ", "DetailsPass", "Flights", new { id = item.PassengerId }, new { @class = "fas fa-info h2" })
+                @Html.ActionLink("    ", "DeletePass", "Flights", new { id = item.PassengerId }, new { @class = "fas fa-trash-alt h2" })
+            </td>
+        </tr>
+    }
+</table>

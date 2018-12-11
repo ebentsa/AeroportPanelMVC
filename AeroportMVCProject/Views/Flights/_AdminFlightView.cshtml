@@ -1,0 +1,82 @@
+﻿@model IEnumerable<AeroportBusinessLogic.Models.Flight>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartureOrArrival)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Flightdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightAirline)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightTerminal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightStat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightGate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BusinessPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EconomPrice)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartureOrArrival)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Flightdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightAirline)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightTerminal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightStat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightGate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusinessPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EconomPrice)
+            </td>
+            <td>
+                @Html.ActionLink("   ", "Edit", new { id = item.FlightId }, new { @class = " fas fa-edit h2" })
+                @Html.ActionLink("   ", "Details", new { id = item.FlightId }, new { @class = " fas fa-info h2" })
+                @Html.ActionLink("   ", "Delete", new { id = item.FlightId }, new { @class = "@class = fas fa-trash-alt h2" })
+                @Html.ActionLink("Пассажиры", "ShowPass", new { id = item.FlightId }, new { @class = "btn btn-outline-primary" })
+                @Html.ActionLink("Добавить Пассажира", "CreatePass", new { id = item.FlightId }, new { @class = "btn btn-outline-primary" })
+            </td>
+        </tr>
+    }
+
+</table>

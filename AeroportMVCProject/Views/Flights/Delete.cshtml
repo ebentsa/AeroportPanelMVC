@@ -1,0 +1,115 @@
+﻿@using AeroportWeb.ExtentionMethods
+@model AeroportMVCProject.Models.FlightCreateUpdateModel
+
+@{
+    ViewBag.Title = "Удаление рейса";
+}
+
+<h2>Удаление рейса</h2>
+
+<h3>Ты уверен что хочешь удалить этот рейс?</h3>
+<div>
+    <h4>Рейс</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlightId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlightId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartureOrArrival)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartureOrArrival)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlightNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlightNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Flightdate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Flightdate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlightCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlightCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlightAirline)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlightAirline)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlightTerminal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlightTerminal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlightStat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlightStat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlightGate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlightGate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EconomPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EconomPrice)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            @Html.Button("Удалить", new { @class = "btn btn-danger", @type = "submit" })
+            @Html.ActionLink("Назад к рейсам", "Index", null, new { @class = "btn btn-outline-primary" })
+        </div>
+    }
+</div>

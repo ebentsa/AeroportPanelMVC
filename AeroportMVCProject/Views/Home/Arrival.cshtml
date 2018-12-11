@@ -1,0 +1,79 @@
+﻿@using AeroportWeb.ExtentionMethods
+@model IEnumerable<AeroportBusinessLogic.Models.Flight>
+@{
+    ViewBag.Title = "Arrival";
+}
+
+
+<div class="row my-5">
+    <div class="col-md-2">
+        <h2>ПРИЛЕТ</h2>
+    </div>
+    @using (Ajax.BeginForm("ArrivalSearch", "Home", new AjaxOptions { UpdateTargetId = "search", InsertionMode = InsertionMode.Replace }, new { @class = "form-inline col-10 justify-content-end" }))
+    {
+        @Html.TextBox("name", "", new { @placeholder = "Введите город или номер рейса", @class = "form-control mr-2 col-5" })
+        @Html.Button("Поиск", new { @class = "btn btn-outline-primary col-2", @type = "submit" })
+    }
+</div>
+
+<div class="row">
+    <div class="btn-group col-md-12 mb-2">
+        @Html.ActionLink("Вылет", "Departure", null, new { @class = "btn btn-outline-primary col-md-6", @align = "center" })
+        @Html.ActionLink("Прилет", "Arrival", null, new { @class = "btn btn-primary col-md-6", @align = "center" })
+    </div>
+
+</div>
+
+<p>
+
+<div id="search">
+
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FlightNum)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Flightdate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FlightCity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FlightAirline)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FlightTerminal)
+                </th>
+
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FlightNum)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Flightdate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FlightCity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FlightAirline)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FlightTerminal)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Детали", "Details", new { id = item.FlightId }, new { @class = "btn btn-outline-primary" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+ </div>
+

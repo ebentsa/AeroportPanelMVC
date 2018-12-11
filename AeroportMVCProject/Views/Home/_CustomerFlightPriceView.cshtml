@@ -1,0 +1,54 @@
+﻿@model IEnumerable<AeroportBusinessLogic.Models.Flight>
+
+<p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Flightdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightAirline)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BusinessPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EconomPrice)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FlightNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Flightdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FlightCity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FlightAirline)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BusinessPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EconomPrice)
+        </td>
+        <td>
+            @Html.ActionLink("Детали", "Details", new { id=item.FlightId }, new {@class = "btn btn-outline-primary" }) 
+        </td>
+    </tr>
+}
+
+</table>
